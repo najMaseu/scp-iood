@@ -1,2 +1,8 @@
 node_modules
 dist
+/scp-iood-wasm/target
+/scp-iood-wasm**/*.rs.bk
+/scp-iood-wasmCargo.lock
+/scp-iood-wasmbin/
+/scp-iood-wasmpkg/
+/scp-iood-wasmwasm-pack.log
