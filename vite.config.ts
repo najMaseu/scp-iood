@@ -3,8 +3,6 @@ import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import wasmPack from "vite-plugin-wasm-pack";
 
-console.log(path.resolve(__dirname, "./client/src/components"));
-
 export default defineConfig({
   plugins: [solidPlugin(), wasmPack("./scp-iood-wasm")],
   root: path.join(process.cwd(), "client"),
@@ -22,4 +20,5 @@ export default defineConfig({
       "@infrastructure": path.resolve(__dirname, "./infrastructure"),
     },
   },
+  assetsInclude: ["**/*.gltf"],
 });

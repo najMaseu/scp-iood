@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
+    "preinstall": "npm run wasm",
     "wasm": "wasm-pack build ./scp-iood-wasm --target web",
     "start": "npm run wasm && vite",
     "dev": "vite",
     "build": "npm run wasm && vite build",
     "serve": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pretty": "pretty-quick"
   },
   "license": "MIT",
   "devDependencies": {

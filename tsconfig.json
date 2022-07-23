@@ -17,6 +17,7 @@
       "@application/*": ["application/*"],
       "@domain/*": ["domain/*"],
       "@infrastructure/*": ["infrastructure/*"]
-    }
+    },
+    "strictPropertyInitialization": false
   }
 }
