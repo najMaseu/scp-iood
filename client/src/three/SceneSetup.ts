@@ -1,7 +1,13 @@
-import { AmbientLight, GridHelper, PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import {
+  AmbientLight,
+  GridHelper,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
+} from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 //@ts-ignore
-import mapLol from `/assets/3d/Map/scene.gltf`;
+import mapLol from "/assets/3d/Map/scene.gltf";
 
 export class SceneSetup {
   private _scene: Scene;
@@ -30,8 +36,8 @@ export class SceneSetup {
     this.ambientLight = new AmbientLight(0xffffff, 0.5);
 
     this.camera.position.z = 0.1;
-    this.camera.position.y =0.1;
-    this.camera.position.x =0.1;
+    this.camera.position.y = 0.1;
+    this.camera.position.x = 0.1;
 
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.ambientLight.castShadow = true;
@@ -40,13 +46,8 @@ export class SceneSetup {
     window.addEventListener("resize", () => this.onWindowResize(), false);
     this.loadAsset();
 
-
-
-
-    const gridHelper = new GridHelper( 100, 100 );
-    this.scene.add( gridHelper );
-
-
+    const gridHelper = new GridHelper(100, 100);
+    this.scene.add(gridHelper);
   }
 
   onWindowResize() {
@@ -62,7 +63,7 @@ export class SceneSetup {
         object.castShadow = true;
       });
 
-      gltf.scene.position.z = 15
+      gltf.scene.position.z = 15;
 
       this.scene.add(gltf.scene);
     });
