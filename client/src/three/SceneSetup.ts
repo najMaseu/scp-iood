@@ -1,8 +1,8 @@
 import {
-  AmbientLight,
   GridHelper,
   PerspectiveCamera,
   Scene,
+  SpotLight,
   WebGLRenderer,
 } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -16,7 +16,7 @@ export class SceneSetup {
 
   private _renderer: WebGLRenderer;
 
-  private _ambientLight: AmbientLight;
+  private _spotLight: SpotLight;
 
   constructor(canvasElement: HTMLCanvasElement) {
     this.scene = new Scene();
@@ -33,15 +33,19 @@ export class SceneSetup {
       antialias: true,
     });
 
-    this.ambientLight = new AmbientLight(0xffffff, 0.5);
+    this.spotLight = new SpotLight(0xffffff, 10);
+    this.spotLight.angle = 2;
 
-    this.camera.position.z = 0.1;
-    this.camera.position.y = 0.1;
-    this.camera.position.x = 0.1;
+    this.camera.position.z = 5;
+    this.camera.position.y = 5;
+    this.camera.position.x = 5;
+
+    this.camera.rotation.y = -200;
+    this.camera.rotation.x = 99;
 
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.ambientLight.castShadow = true;
-    this.scene.add(this.ambientLight);
+    this.spotLight.castShadow = true;
+    this.scene.add(this.spotLight);
 
     window.addEventListener("resize", () => this.onWindowResize(), false);
     this.loadAsset();
@@ -93,11 +97,11 @@ export class SceneSetup {
     this._renderer = value;
   }
 
-  public get ambientLight(): AmbientLight {
-    return this._ambientLight;
+  public get spotLight(): SpotLight {
+    return this._spotLight;
   }
 
-  private set ambientLight(value: AmbientLight) {
-    this._ambientLight = value;
+  private set spotLight(value: SpotLight) {
+    this._spotLight = value;
   }
 }

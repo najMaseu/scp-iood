@@ -1,7 +1,7 @@
 import { GameLoopService } from "@application/GameLoop/GameLoopService";
 import { onMount } from "solid-js";
 // import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
 import { SceneSetup } from "../../three/SceneSetup";
 
@@ -18,11 +18,11 @@ export const Canvas = () => {
 
     // scene.add(boxMesh);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
+    // const controls = new OrbitControls(camera, renderer.domElement);
     const stats = Stats();
     document.body.appendChild(stats.dom);
 
-    addToLoop(() => controls.update());
+    // addToLoop(() => controls.update());
     addToLoop(() => stats.update());
     addToLoop(() => renderer.render(scene, camera));
     // addToLoop(() => {
